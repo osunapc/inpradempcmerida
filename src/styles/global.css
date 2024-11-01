@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: rgb(1, 11, 27);
+	color: white;
+	accent-color: rgb(244, 123, 25);
+}
+
+::web-kit-scrollbar {
+	width: 12px;
+}
+::web-kit-scrollbar-thumb {
+	background: linear-gradient(transparent, rgb(244, 123, 25));
+	border-radius: 6px;
+}
+::web-kit-scrollbar-thumb :hover {
+	background: linear-gradient(transparent, rgb(197, 92, 6));
+}

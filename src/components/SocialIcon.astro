@@ -1,0 +1,14 @@
+---
+interface Props {
+	href: string;
+	path: string;
+}
+
+const { href, path } = Astro.props;
+---
+
+<a target="_blank" href={href} class="text-white hover:text-blue-600 transition-colors">
+	<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+		<path d={path}></path>
+	</svg>
+</a>

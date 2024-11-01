@@ -1,0 +1,35 @@
+---
+import { noticias } from '../data/Noticias'
+---
+
+<section class="flex justify-center items-center">
+	<swiper-container
+		class="mySwiper w-[80%] h-[80vh] relative"
+		space-between="30"
+		pagination="true"
+		pagination-clickable="true"
+	>
+		{
+        noticias.map(noticia => {
+            return(
+             <swiper-slide class="">
+			<img
+				style="mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);"
+				class="object-cover w-full h-full object-center"
+				src={noticia.img}
+				alt="funcionario de proteccion civil"
+			/>
+			<h2 class="absolute bottom-10 left-10 font-semibold text-4xl w-1/2">
+				{noticia.titulo}
+			</h2>
+		</swiper-slide>
+        )
+        })
+    }
+		
+	</swiper-container>
+</section>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
+></script>

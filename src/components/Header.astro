@@ -1,0 +1,90 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+import NavDropdown from "./NavDropdown.astro";
+
+interface Props {
+	logoUrl?: string;
+}
+
+const { logoUrl = "/logo.svg" } = Astro.props;
+
+const socialIcons = [
+	{
+		href: "https://www.facebook.com/proteccioncivilmrd/",
+		path: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z",
+	},
+	{
+		href: "https://www.instagram.com/proteccioncivilmerida/",
+		path: "M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.509-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2z",
+	},
+	{
+		href: "https://x.com/PC_MERIDA",
+		path: "M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z",
+	},
+];
+
+const navItems = [
+	{
+		title: "Cordinacion",
+		items: [{ label: "Sistema Nacional de Protección Civil", href: "#" }],
+	},
+	{
+		title: "Lineas de ayuda",
+		items: [
+			{ label: "0-800pcmerida", href: "#" },
+			{ label: "171", href: "#" },
+		],
+	},
+	{
+		title: "Formacion",
+		items: [
+			{ label: "UNES", href: "#" },
+			{ label: "Departamento de educacion", href: "#" },
+			{ label: "Cursos", href: "#" },
+		],
+	},
+];
+---
+
+<nav class="w-full bg-naranja">
+	<!-- Top Row -->
+	<div
+		class="container mx-auto px-4 py-3 flex justify-between items-center border-b border-orange-400"
+	>
+		<div class="w-32">
+			<img src={logoUrl} alt="Logo" class="h-8 w-auto" />
+		</div>
+
+		<div class="flex gap-4 items-center">
+			{
+				socialIcons.map((icon) => (
+					<SocialIcon href={icon.href} path={icon.path} />
+				))
+			}
+		</div>
+	</div>
+
+	<!-- Bottom Row with Details -->
+	<div class="container mx-auto px-4">
+		<div class="grid md:grid-cols-6 gap-2 py-2 text-center">
+			<a
+				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul hover:font-bold"
+				href="/">Inicio</a
+			>
+
+			{
+				navItems.map((item) => (
+					<NavDropdown title={item.title} items={item.items} />
+				))
+			}
+			<a
+				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul hover:font-bold"
+				href="/blog">blog</a
+			>
+			<a
+				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul hover:font-bold"
+				href="/about">Sobre Nosotros</a
+			>
+		</div>
+	</div>
+</nav>

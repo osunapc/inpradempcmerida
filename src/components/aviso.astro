@@ -1,0 +1,21 @@
+---
+interface Props {
+	title: string;
+	txt: string;
+	link: string;
+}
+const { title, txt, link } = Astro.props;
+---
+
+<swiper-slide
+	class="flex flex-col text-center cursor-pointer rounded-b-lg bg-blanco"
+>
+	<header class="bg-naranja w-full m-0 p-2">
+		<h3 class="text-blanco font-bold text-3xl">{title}</h3>
+	</header>
+	<main class="text-center h-10 p-3">
+		<p class="text-gray-700 font-semibold mt-2">{txt}</p>
+		<a class="font-bold text-naranja" target="_blank" href=`${link}`>leer mas</a
+		>
+	</main>
+</swiper-slide>

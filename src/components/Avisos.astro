@@ -1,0 +1,57 @@
+---
+import Aviso from "./aviso.astro";
+import { avisos } from "../data/Avisos";
+---
+
+<section class="w-80% h-60 p-10">
+	<swiper-container
+		class="mySwiper w-full h-full"
+		init="false"
+		navigation="true"
+		pagination="true"
+	>
+		{
+			avisos.map((aviso) => {
+				return <Aviso title={aviso.titulo} txt={aviso.txt} link={aviso.link} />;
+			})
+		}
+	</swiper-container>
+</section>
+
+<script>
+	import "swiper/css";
+	import { register } from "swiper/element/bundle";
+	register();
+
+	// Definimos el tipo para el elemento swiper
+	const swiperEl = document.querySelector("swiper-container") as any;
+
+	// Configuración del swiper
+	const swiperParams = {
+		slidesPerView: 1,
+		spaceBetween: 5,
+		pagination: {
+			clickable: true,
+		},
+		breakpoints: {
+			640: {
+				slidesPerView: 1,
+				spaceBetween: 20,
+			},
+			768: {
+				slidesPerView: 4,
+				spaceBetween: 40,
+			},
+			1024: {
+				slidesPerView: 4,
+				spaceBetween: 50,
+			},
+		},
+	};
+
+	// Asignamos los parámetros
+	Object.assign(swiperEl, swiperParams);
+
+	// Inicializamos el swiper
+	swiperEl.initialize();
+</script>

@@ -1,0 +1,31 @@
+---
+interface Props {
+	img: string,
+	alt: string,
+	titulo: string,
+    cont: string,
+    url: string,
+	}
+    const { img, alt, titulo, cont, url } = Astro.props;
+
+---
+
+<article class="flex flex-col shadow max-w-[320px] hover:scale-105">
+	<!-- Article Image -->
+	<div class="h-36">
+		<img
+			class="object-cover object-center"
+			src=`${img}`
+            alt=`${alt}`
+		/>
+	</div>
+	<div class="bg-blanco flex flex-col justify-start p-6 rounded-b-lg">
+		<h3 class="text-3xl text-naranja font-bold hover:text-gray-700 pb-4">
+			{titulo}
+		</h3>
+		<p class="pb-2 text-negro">
+			{cont}
+		</p>
+		<a href=`${url}` class="text-naranja"> Leer mass </a>
+	</div>
+</article>

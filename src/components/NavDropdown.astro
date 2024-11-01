@@ -1,0 +1,46 @@
+---
+interface Props {
+	title: string;
+	items: { label: string; href: string }[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<div class="relative">
+	<details class="group">
+		<summary
+			class="list-none cursor-pointer py-2 px-1  text-white transition-colors text-nowrap"
+		>
+			<div class="flex items-center gap-2 hover:text-azul hover:font-bold focus:text-azul active:font-bold">
+				<span>{title}</span>
+				<svg
+					class="w-5 h-5 transition-transform group-open:rotate-180"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M19 9l-7 7-7-7"></path>
+				</svg>
+			</div>
+		</summary>
+		<div
+			class="absolute top-full left-0 right-0 mt-2 bg-naranja rounded-b-lg shadow-lg p-1 z-50"
+		>
+			{
+				items.map((item) => (
+					<a
+						href={item.href}
+						class="block py-2 px-4 hover:bg-azul rounded-lg"
+					>
+						{item.label}
+					</a>
+				))
+			}
+		</div>
+	</details>
+</div>
