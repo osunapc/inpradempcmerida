@@ -64,11 +64,21 @@ const navItems = [
 		</div>
 	</div>
 
-	<!-- Bottom Row with Details -->
-	<div class="container mx-auto px-4">
-		<div class="grid md:grid-cols-6 gap-2 py-2 text-center">
+	<!-- burger -->
+
+	<div class="md:hidden border-gray-950 p-1">
+		<label class="burger m-1 md:hidden bg-naranja" for="burger">
+			<input type="checkbox" id="burger" />
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+	</div>
+
+	<div id="menu" class="container hidden md:flex mx-auto px-4">
+		<div class="grid md:grid-cols-6 gap-2 py-2 justify-center items-center">
 			<a
-				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul hover:font-bold"
+				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul"
 				href="/">Inicio</a
 			>
 
@@ -78,13 +88,95 @@ const navItems = [
 				))
 			}
 			<a
-				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul hover:font-bold"
+				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul"
 				href="/blog">blog</a
 			>
 			<a
-				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul hover:font-bold"
+				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul"
 				href="/about">Sobre Nosotros</a
 			>
 		</div>
 	</div>
 </nav>
+<script>
+	const menu = document.querySelector("#menu") as HTMLElement;
+	const burger = document.querySelector("#burger") as HTMLElement;
+
+	burger.addEventListener("click", () => {
+		// Verificamos si el elemento tiene la clase 'hidden'
+		if (menu.classList.contains("hidden")) {
+			// Si la tiene, la quitamos
+			menu.classList.remove("hidden");
+		} else {
+			// Si no la tiene, la agregamos
+			menu.classList.add("hidden");
+		}
+	});
+</script>
+
+<style>
+	
+	.burger {
+		position: relative;
+		width: 20px;
+		height: 15px;
+		background: transparent;
+		cursor: pointer;
+		display: block;
+		padding: 10px;
+	
+
+	}
+
+	.burger input {
+		display: none;
+	}
+
+	.burger span {
+		display: block;
+		position: absolute;
+		height: 4px;
+		width: 100%;
+		background: rgb(12, 56, 250);
+		border-radius: 9px;
+		opacity: 1;
+		left: 0;
+		transform: rotate(0deg);
+		transition: 0.25s ease-in-out;
+	}
+
+	.burger span:nth-of-type(1) {
+		top: 0px;
+		transform-origin: left center;
+	}
+
+	.burger span:nth-of-type(2) {
+		top: 50%;
+		transform: translateY(-50%);
+		transform-origin: left center;
+	}
+
+	.burger span:nth-of-type(3) {
+		top: 100%;
+		transform-origin: left center;
+		transform: translateY(-100%);
+	}
+
+	.burger input:checked ~ span:nth-of-type(1) {
+		transform: rotate(45deg);
+		top: 0px;
+		left: 5px;
+	}
+
+	.burger input:checked ~ span:nth-of-type(2) {
+		width: 0%;
+		opacity: 0;
+		border : none;
+	}
+
+	.burger input:checked ~ span:nth-of-type(3) {
+		transform: rotate(-45deg);
+		top: 14px;
+		left: 5px;
+	}
+</style>
