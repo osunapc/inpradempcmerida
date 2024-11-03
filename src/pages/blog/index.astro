@@ -16,16 +16,26 @@ const posts = (await getCollection("blog")).sort(
 >
 	<main>
 		<section>
-			<ul>
+			<header class="w-full h-52 relative mb-10">
+				<img
+					style="mask-image: linear-gradient(rgb(0 0 0 / 100%), transparent);"
+					class="object-cover object-top h-full w-full"
+					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7uUfgfU6H7bPqKDCPcBwLtG0pU-o9nyiNC9f7y1RSZeOIX1zZPo_6h7e3kjVp4GS6Lbk&usqp=CAU"
+					alt="funcionarios de proteccion civil"
+				/>
+				<h2 class="absolute top-20 left-20 text-5xl">Noticias relevantes</h2>
+			</header>
+			<ul class="grid grid-cols-4 gap-2 p-20">
 				{
 					posts.map((post) => (
 						<li>
-							<a href={`/blog/${post.slug}/`}>
+							<a name={post.slug} href={`/blog/${post.slug}/`}>
 								<img
+									class="w-full h-1/2 object-cover"
 									width={720}
 									height={360}
 									src={post.data.heroImage}
-									alt=""
+									alt={post.slug}
 								/>
 								<h4 class="title">{post.data.title}</h4>
 								<p class="date">
