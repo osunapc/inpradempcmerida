@@ -2,9 +2,13 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "strictNullChecks": true,
-     "baseUrl": ".",
+    "baseUrl": ".",
     "paths": {
-      "@layouts/*": ["src/layouts/*"]
-    }
+      "@layouts/*": [
+        "src/layouts/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
