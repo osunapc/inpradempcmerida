@@ -26,11 +26,7 @@ const socialIcons = [
 const navItems = [
 	{
 		title: "Cordinacion",
-		items: [
-			{ label: "Sistema Nacional de Protección Civil", href: "#" },
-			{label:  "Organigrama", href:"/organigrama"},
-
-		],
+		items: [{ label: "Organigrama", href: "/organigrama" }],
 	},
 	{
 		title: "Lineas de ayuda",
@@ -45,6 +41,15 @@ const navItems = [
 			{ label: "UNES", href: "#" },
 			{ label: "Departamento de educacion", href: "#" },
 			{ label: "Cursos", href: "#" },
+		],
+	},
+	{
+		title: "Sobre Nosotros",
+		items: [
+			{ label: "Mision y Vision", href: "/about/mision" },
+			{ label: "Valores", href: "/about/valores" },
+			{ label: "Objetivos", href: "/about/objetivos" },
+			{ label: "Oracion virgen", href: "/about/oracion" },
 		],
 	},
 ];
@@ -94,10 +99,6 @@ const navItems = [
 			<a
 				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul"
 				href="/blog">blog</a
-			>
-			<a
-				class="list-none cursor-pointer py-2 px-2 text-white rounded-lg transition-colors hover:text-azul"
-				href="/about">Sobre Nosotros</a
 			>
 		</div>
 	</div>
@@ -179,5 +180,4 @@ const navItems = [
 		top: 14px;
 		left: 5px;
 	}
-	
 </style>
