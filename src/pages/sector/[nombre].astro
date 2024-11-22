@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { sectores } from "../../data/sectores.js";
+
+export function getStaticPaths() {
+	return sectores.map((sector) => ({
+		params: { nombre: sector.nombre.replace(/\s+/g, '') },
+		props: { sector },
+	}));
+}
+
+const { sector } = Astro.props;
+---
+
+<Layout title={sector.nombre} description={sector.nombre}>
+	<main class="container mx-auto px-4 py-8">
+		<h1 class="text-4xl font-bold text-orange-600 mb-8">{sector.nombre}</h1>
+		<div class=" rounded-lg shadow-md p-6">
+			<img
+				src={`https://picsum.photos/seed/${sector.nombre}/800/400`}
+				alt={sector.nombre}
+				class="w-full h-64 object-cover rounded-lg mb-6"
+			/>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<div>
+					<h2 class="text-2xl font-semibold text-blue-600 mb-4">
+						Información General
+					</h2>
+					<p><strong>Coordinador:</strong> {sector.coordinador}</p>
+					<p><strong>Dirección:</strong> {sector.direccion}</p>
+					<p><strong>Municipio:</strong> {sector.municipio}</p>
+					<p><strong>Parroquia:</strong> {sector.parroquia}</p>
+					<p><strong>Teléfono:</strong> {sector.contacto.telefono}</p>
+					<p><strong>Email:</strong> {sector.contacto.email}</p>
+				</div>
+
+				<div>
+					<h2 class="text-2xl font-semibold text-blue-600 mb-4">Personal</h2>
+					<p><strong>Total:</strong> {sector.personal.total}</p>
+					<p><strong>Operativo:</strong> {sector.personal.operativo}</p>
+					<p>
+						<strong>Administrativo:</strong>
+						{sector.personal.administrativo}
+					</p>
+				</div>
+			</div>
+
+			<div class="mt-6">
+				<h2 class="text-2xl font-semibold text-blue-600 mb-4">Vehículos</h2>
+				<ul class="list-disc pl-6">
+					{
+						sector.vehiculos.map((vehiculo) => (
+							<li>
+								{vehiculo.modelo} - {vehiculo.tipo} ({vehiculo.color}) - Placa:{" "}
+								{vehiculo.placa}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="mt-6">
+				<h2 class="text-2xl font-semibold text-blue-600 mb-4">Límites</h2>
+				<p><strong>Norte:</strong> {sector.limites.norte}</p>
+				<p><strong>Sur:</strong> {sector.limites.sur}</p>
+				<p><strong>Este:</strong> {sector.limites.este}</p>
+				<p><strong>Oeste:</strong> {sector.limites.oeste}</p>
+			</div>
+
+			<div class="mt-6">
+				<h2 class="text-2xl font-semibold text-blue-600 mb-4">Coordenadas</h2>
+				<p><strong>Latitud:</strong> {sector.coordenadas.latitud}</p>
+				<p><strong>Longitud:</strong> {sector.coordenadas.longitud}</p>
+			</div>
+		</div>
+
+		<a
+			href="/"
+			class="inline-block mt-8 bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 transition-colors duration-300"
+		>
+			Volver a la página principal
+		</a>
+	</main>
+</Layout>

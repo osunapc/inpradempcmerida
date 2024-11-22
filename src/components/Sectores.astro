@@ -1,6 +1,6 @@
 ---
-import Aviso from "./aviso.astro";
-import { avisos } from "../data/Avisos";
+import Sector from "./Sector.astro";
+import { sectores } from "../data/sectores";
 ---
 
 <section class="w-80% h-60 p-10">
@@ -11,8 +11,8 @@ import { avisos } from "../data/Avisos";
 		pagination="true"
 	>
 		{
-			avisos.map((aviso) => {
-				return <Aviso title={aviso.titulo} txt={aviso.txt} link={aviso.link} />;
+			sectores.map((sector) => {
+				return <Sector sector={sector} />;
 			})
 		}
 	</swiper-container>
