@@ -15,11 +15,11 @@ const { sector } = Astro.props;
 <Layout title={sector.nombre} description={sector.nombre}>
 	<main class="container mx-auto px-4 py-8">
 		<h1 class="text-4xl font-bold text-orange-600 mb-8">{sector.nombre}</h1>
-		<div class=" rounded-lg shadow-md p-6">
+		<div class=" rounded-lg shadow-md p-4">
 			<img
-				src={`https://picsum.photos/seed/${sector.nombre}/800/400`}
+				src={sector.img}
 				alt={sector.nombre}
-				class="w-full h-64 object-cover rounded-lg mb-6"
+				class="w-full h-80 object-cover object-center rounded-lg mb-6"
 			/>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">

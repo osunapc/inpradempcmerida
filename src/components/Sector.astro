@@ -10,7 +10,7 @@ const { sector } = Astro.props;
 			class="bg-white shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 		>
 			<img
-				src={`https://picsum.photos/seed/${sector.nombre}/400/200`}
+				src={sector.img}
 				alt={sector.nombre}
 				class="w-full h-10 object-cover"
 			/>
