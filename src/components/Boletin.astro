@@ -12,9 +12,9 @@ interface Props {
 
 <article class="flex flex-col shadow max-w-[320px] hover:scale-105">
 	<!-- Article Image -->
-	<div class="h-36">
+	<div class="h-56">
 		<img
-			class="object-cover object-center"
+			class="h-full w-full object-cover object-center"
 			src=`${img}`
             alt=`${alt}`
 		/>
@@ -26,6 +26,6 @@ interface Props {
 		<p class="pb-2 text-negro">
 			{cont}
 		</p>
-		<a href=`${url}` class="text-naranja"> Leer mass </a>
+		<a target="_blank" href=`${url}` class="text-naranja"> Leer mass </a>
 	</div>
 </article>
