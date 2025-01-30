@@ -127,7 +127,7 @@ const orgStructure: OrgUnit = {
 											name: "Centro de Coordinación de Protección Civil Metropolitano",
 											children: [
 												{
-													name: "Sub Centro de Coordinación de Protección Civil Juan Rodríguez Suárez",
+													name: "Sub Centro de Coordinación de Protección Civil Aricagua",
 												},
 												{
 													name: "Sub Centro de Coordinación de Protección Civil Antonio Spinetti Dini",
@@ -139,6 +139,12 @@ const orgStructure: OrgUnit = {
 											children: [
 												{
 													name: "Sub Centro de Coordinación de Protección Civil Miranda",
+												},
+												{
+													name: "Sub Centro de Coordinación de Protección Civil Piñango",
+												},
+												{
+													name: "Sub Centro de Coordinación de Protección Civil Pueblo Llano",
 												},
 											],
 										},
@@ -152,7 +158,7 @@ const orgStructure: OrgUnit = {
 											name: "Centro de Coordinación de Protección Civil Panamericana Sur",
 											children: [
 												{
-													name: "Sub Centro de Coordinación de Protección Civil San Elías de Estanques",
+													name: "Sub Centro de Coordinación de Protección Civil San Elena de Arenales",
 												},
 												{
 													name: "Sub Centro de Coordinación de Protección Civil Andrés Bello",
@@ -163,20 +169,12 @@ const orgStructure: OrgUnit = {
 											name: "Centro de Coordinación de Protección Civil Sur del Lago",
 											children: [
 												{
-													name: "Sub Centro de Coordinación de Protección Civil Palmento",
-												},
-												{
-													name: "Sub Centro de Coordinación de Protección Civil Arapuey",
-												},
-												{
 													name: "Sub Centro de Coordinación de Protección Civil Nueva Bolivia",
 												},
+												
 											],
 										},
-										{
-											name: "Centro de Coordinación de Protección Civil El Vigía",
-										},
-									],
+										],
 								},
 								{
 									name: "NIVEL AUXILIAR",
